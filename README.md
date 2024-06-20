@@ -31,7 +31,7 @@ This project showcases a seamless blend of desktop and web technologies to creat
 - MySQL
 - IDE (e.g., IntelliJ IDEA, Eclipse)
 
-### Database Setup
+## Database Setup
 
 1. **Create MySQL Database**
     ```sql
@@ -43,11 +43,11 @@ This project showcases a seamless blend of desktop and web technologies to creat
     Use the provided `Create_tables.sql` file provied in Server-side/LibraryMainService to create the necessary tables in your database:
    
 
-### Backend Setup
+## Project Setup
 
 1. **Clone the Repository**
     ```bash
-    git clone <your-repository-url>
+    git clone <your-repository-url> 
     cd library-management-system/backend
     ```
 
@@ -67,72 +67,56 @@ This project showcases a seamless blend of desktop and web technologies to creat
         return conn;
     }
     ```
+## Running the Complete Application
 
-3. **Build the Project**
+After cloning the repository and setting up both the backend and frontend as described, follow these steps to run the entire Library Management System:
+
+1. **Start the Backend**
+    Navigate to the `Server-side` directory and run the main class to start the Spring Boot backend services. This will establish the necessary connections and endpoints for the application.
     ```bash
-    mvn clean install
+    cd Library-Management-System/Server-side
+    mvn exec:java -Dexec.mainClass="Application.Main"
     ```
 
-4. **Run the Application**
+2. **Start the Frontend**
+    Navigate to the `Client-side` directory, open the project in your preferred IDE, and execute `MainController.java` to launch the Swing-based desktop application. Ensure that the server-side application is 
+    running to allow the frontend to interact with the backend services.
     ```bash
-    mvn exec:java -Dexec.mainClass="com.yourpackage.MainClass"
+    cd ../Client-side
+    open in IDE and run MainController.java
     ```
 
-### Frontend Setup
-
-1. **Clone the Repository**
-    ```bash
-    git clone <your-repository-url>
-    cd library-management-system/frontend
-    ```
-
-2. **Run the Application**
-    Open the project in your IDE and run the main class to start the desktop application.
+By following these steps, you'll have a fully functional Library Management System that seamlessly integrates desktop and web technologies to manage library resources efficiently.
 
 ## Features
 
+Ensure the backend server is running. You can test the endpoints using tools like Postman or through the frontend application.
+
 ### Backend Features
 - **Books Management**
-  - Add, update, delete, and retrieve books
+  - Add, update, delete, and retrieve books 
 - **Members Management**
-  - Add, update, delete, and retrieve members
+  - Add, update, delete,login authentication and retrieve members
 - **Loans Management**
   - Add, update, delete, and retrieve loans
   - Only display books not currently on loan in the dropdown for adding loans
   - Display all members in the dropdown for adding loans
 
-### Frontend Features
-- **Books Management UI**
-  - Form for adding, updating, and deleting books
-  - Table for displaying all books
-- **Members Management UI**
-  - Form for adding, updating, and deleting members
-  - Table for displaying all members
-- **Loans Management UI**
-  - Form for adding, updating, and deleting loans
-  - Table for displaying all loans
-  - Dropdowns for book IDs and member IDs, with filtering for available books
-
-## Usage
-
-### Running the Backend
-
-Ensure the backend server is running. You can test the endpoints using tools like Postman or through the frontend application.
-
-### Using the Frontend
-
-1. **Books Management**
+  ### Frontend Features
+1. **Books Management UI**
     - Add, update, and delete books using the provided form.
     - View all books in the table.
 
-2. **Members Management**
+2. **Members Management UI**
     - Add, update, and delete members using the provided form.
     - View all members in the table.
+    - User authentication login form which authenticates registered users by verifying credentials with security encryption.
 
-3. **Loans Management**
+3. **Loans Management UI**
     - Add new loans by selecting an available book and a member from the dropdowns.
     - View all loan records in the table.
     - Update or delete existing loans as needed.
+
 
 ## RESTful Endpoints
 
@@ -141,24 +125,27 @@ The backend exposes several RESTful endpoints:
 - **Books**
   - `GET /library/books`: Retrieve all books
   - `GET /library/books/{id}`: Retrieve a book by ID
+  - `GET /library/books/available`: Retrieve only the books that are available for loan and have not been issued to any member.
   - `POST /library/books`: Add a new book
   - `PUT /library/books/{id}`: Update a book by ID
-  - `DELETE /library/books/{id}`: Delete a book by ID
+  - `DELETE /library/books/{bookId}`: Delete a book by ID
 
 - **Members**
   - `GET /library/members`: Retrieve all members
   - `GET /library/members/{id}`: Retrieve a member by ID
+  - `GET /library/members/ids`: Retrieve all members ID use for loan implementation 
+  - `POST /library/members/login`: Authenticate registered users by verifying credentials with security encryption.
   - `POST /library/members`: Add a new member
   - `PUT /library/members/{id}`: Update a member by ID
-  - `DELETE /library/members/{id}`: Delete a member by ID
+  - `DELETE /library/members/{memberId}`: Delete a member by ID
 
 - **Loans**
   - `GET /library/loans`: Retrieve all loans
   - `GET /library/loans/{id}`: Retrieve a loan by ID
   - `POST /library/loans`: Add a new loan
   - `PUT /library/loans/{id}`: Update a loan by ID
-  - `DELETE /library/loans/{id}`: Delete a loan by ID
+  - `DELETE /library/loans/{loanId}`: Delete a loan by ID
 
 ## Contact
 
-For any issues or questions, please open an issue in the repository or contact [Your Name] at [Your Email].
+For any issues or questions, please open an issue in the repository or contact **Devansh Bhadauria** at devanshbhadauria4070@gmail.com
