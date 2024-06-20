@@ -5,6 +5,7 @@
 The Library Management System is a Java-based application designed to manage books, members, and loan records in a library. Developed using Java and Swing for the frontend and Spring Boot for the backend services, it integrates MySQL for database management, ensuring efficient storage and retrieval of data. The system consists of two main components:
 
 1. **Server-side Application (Backend)**: Provides RESTful APIs to manage books, members, and loans using Java, Jersey for RESTful services, and MySQL for data storage. It features functionality for managing book entries, loans, and member information with HTTP communication handled through Java’s HttpURLConnection. The backend uses Jetty for server deployment.
+
 2. **Client-side Application (Frontend)**: A desktop-based application using Java Swing to provide a user interface for library staff to manage the library's inventory and loans.
 
 This project showcases a seamless blend of desktop and web technologies to create a robust library management solution.
